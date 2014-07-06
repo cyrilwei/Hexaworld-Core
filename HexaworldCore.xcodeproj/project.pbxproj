@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F1B3C3421969503100366758 /* HexaworldCore.h in Headers */ = {isa = PBXBuildFile; fileRef = F1B3C3411969503100366758 /* HexaworldCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1B3C3481969503100366758 /* HexaworldCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B3C33C1969503100366758 /* HexaworldCore.framework */; };
+		F1B3C3E01969583400366758 /* HexaworldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3C3DF1969583400366758 /* HexaworldTests.swift */; };
+		F1B3C3E21969587300366758 /* Hexaworld.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3C3E11969587300366758 /* Hexaworld.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,8 @@
 		F1B3C3411969503100366758 /* HexaworldCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HexaworldCore.h; sourceTree = "<group>"; };
 		F1B3C3471969503100366758 /* HexaworldCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexaworldCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1B3C34D1969503100366758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1B3C3DF1969583400366758 /* HexaworldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaworldTests.swift; sourceTree = "<group>"; };
+		F1B3C3E11969587300366758 /* Hexaworld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hexaworld.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 			children = (
 				F1B3C3411969503100366758 /* HexaworldCore.h */,
 				F1B3C33F1969503100366758 /* Supporting Files */,
+				F1B3C3E11969587300366758 /* Hexaworld.swift */,
 			);
 			path = HexaworldCore;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				F1B3C34C1969503100366758 /* Supporting Files */,
+				F1B3C3DF1969583400366758 /* HexaworldTests.swift */,
 			);
 			path = HexaworldCoreTests;
 			sourceTree = "<group>";
@@ -207,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1B3C3E21969587300366758 /* Hexaworld.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1B3C3E01969583400366758 /* HexaworldTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +324,7 @@
 		F1B3C3531969503100366758 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -325,12 +334,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		F1B3C3541969503100366758 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -346,6 +357,7 @@
 		F1B3C3561969503100366758 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -358,12 +370,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		F1B3C3571969503100366758 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -394,6 +408,7 @@
 				F1B3C3541969503100366758 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F1B3C3551969503100366758 /* Build configuration list for PBXNativeTarget "HexaworldCoreTests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +417,7 @@
 				F1B3C3571969503100366758 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
