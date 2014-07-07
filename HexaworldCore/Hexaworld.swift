@@ -9,27 +9,32 @@
 import Foundation
 
 class Hexaworld {
-    let width: Int
-    let height: Int
+    let columns: Int
+    let rows: Int
     
-    let cells: HexaworldCell[]
+    let cells: HexaworldCell?[]
     
-    init(width: Int, height: Int) {
-        self.width = width;
-        self.height = height;
-        
-        cells = []
-        
-        for i in 0..(width * height) {
-            cells.append(HexaworldCell())
+    subscript(column: Int, row: Int) -> HexaworldCell? {
+        get {
+            if row >= rows || row < 0 || column >= columns || column < 0 {
+                return nil
+            }
+            
+            return cells[row * columns + column]
+        }
+        set {
+            cells[row * columns + column] = newValue
         }
     }
     
-    func cellAt(index: Int) -> HexaworldCell? {
-        if index >= cells.count || index < 0 {
-            return nil
-        }
+    init(columns: Int, rows: Int) {
+        self.columns = columns;
+        self.rows = rows;
         
-        return cells[index]
+        cells = []
+        
+        for i in 0..(columns * rows) {
+            cells.append(HexaworldCell())
+        }
     }
 }

@@ -10,8 +10,8 @@ import XCTest
 import HexaworldCore
 
 class HexaworldTests: XCTestCase {
-    let expectedWidth = 5
-    let expectedHeight = 3
+    let expectedColumns = 5
+    let expectedRows = 3
     
     override func setUp() {
         super.setUp()
@@ -24,19 +24,19 @@ class HexaworldTests: XCTestCase {
     }
 
     func test_should_create_hexaworld_with_width_and_height() {
-        let world = Hexaworld(width: expectedWidth, height: expectedHeight)
-        XCTAssertEqual(expectedWidth, world.width)
-        XCTAssertEqual(expectedHeight, world.height)
+        let world = Hexaworld(columns: expectedColumns, rows: expectedRows)
+        XCTAssertEqual(expectedColumns, world.columns)
+        XCTAssertEqual(expectedRows, world.rows)
     }
     
     func test_should_have_15_cells_in_5_by_3_world() {
-        let world = Hexaworld(width: expectedWidth, height: expectedHeight)
+        let world = Hexaworld(columns: expectedColumns, rows: expectedRows)
         XCTAssertEqual(15, world.cells.count)
     }
     
-    func test_should_return_cell_at_position() {
-        let world = Hexaworld(width: expectedWidth, height: expectedHeight)
-        let cell = world.cellAt(1)
+    func test_should_return_cell_at_position_0_1() {
+        let world = Hexaworld(columns: expectedColumns, rows: expectedRows)
+        let cell = world[0, 1]
         if let realCell = cell? {
             // should be success
         } else {
@@ -45,11 +45,10 @@ class HexaworldTests: XCTestCase {
     }
     
     func test_should_return_nil_at_illegal_position() {
-        let world = Hexaworld(width: expectedWidth, height: expectedHeight)
-        let cell = world.cellAt(expectedWidth * expectedHeight)
+        let world = Hexaworld(columns: expectedColumns, rows: expectedRows)
+        let cell = world[expectedColumns, expectedRows]
         if let realCell = cell? {
             XCTFail()
         }
     }
-
 }
