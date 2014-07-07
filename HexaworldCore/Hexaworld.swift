@@ -9,16 +9,10 @@
 import Foundation
 
 class Hexaworld {
-    var width: Int
-    var height: Int
+    let width: Int
+    let height: Int
     
-    var cells: HexaworldCell[]
-    
-    var cellCount: Int {
-    get {
-        return cells.count
-    }
-    }
+    let cells: HexaworldCell[]
     
     init(width: Int, height: Int) {
         self.width = width;

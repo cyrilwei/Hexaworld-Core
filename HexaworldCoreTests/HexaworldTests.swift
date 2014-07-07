@@ -31,7 +31,7 @@ class HexaworldTests: XCTestCase {
     
     func test_should_have_15_cells_in_5_by_3_world() {
         let world = Hexaworld(width: expectedWidth, height: expectedHeight)
-        XCTAssertEqual(15, world.cellCount)
+        XCTAssertEqual(15, world.cells.count)
     }
     
     func test_should_return_cell_at_position() {
