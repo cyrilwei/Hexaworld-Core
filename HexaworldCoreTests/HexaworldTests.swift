@@ -24,13 +24,32 @@ class HexaworldTests: XCTestCase {
     }
 
     func test_should_create_hexaworld_with_width_and_height() {
-        var world = Hexaworld(width: expectedWidth, height: expectedHeight)
+        let world = Hexaworld(width: expectedWidth, height: expectedHeight)
         XCTAssertEqual(expectedWidth, world.width)
         XCTAssertEqual(expectedHeight, world.height)
     }
     
     func test_should_have_15_cells_in_5_by_3_world() {
-        var world = Hexaworld(width: expectedWidth, height: expectedHeight)
+        let world = Hexaworld(width: expectedWidth, height: expectedHeight)
         XCTAssertEqual(15, world.cellCount)
     }
+    
+    func test_should_return_cell_at_position() {
+        let world = Hexaworld(width: expectedWidth, height: expectedHeight)
+        let cell = world.cellAt(1)
+        if let realCell = cell? {
+            // should be success
+        } else {
+            XCTFail()
+        }
+    }
+    
+    func test_should_return_nil_at_illegal_position() {
+        let world = Hexaworld(width: expectedWidth, height: expectedHeight)
+        let cell = world.cellAt(expectedWidth * expectedHeight)
+        if let realCell = cell? {
+            XCTFail()
+        }
+    }
+
 }

@@ -12,11 +12,11 @@ class Hexaworld {
     var width: Int
     var height: Int
     
-//    var cells: HexaworldCell[]
+    var cells: HexaworldCell[]
     
     var cellCount: Int {
     get {
-        return width * height
+        return cells.count
     }
     }
     
@@ -24,6 +24,18 @@ class Hexaworld {
         self.width = width;
         self.height = height;
         
+        cells = []
         
+        for i in 0..(width * height) {
+            cells.append(HexaworldCell())
+        }
+    }
+    
+    func cellAt(index: Int) -> HexaworldCell? {
+        if index >= cells.count || index < 0 {
+            return nil
+        }
+        
+        return cells[index]
     }
 }

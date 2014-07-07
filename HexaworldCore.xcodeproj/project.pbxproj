@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1190A3F196A9F11007BB311 /* HexaworldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1190A3E196A9F11007BB311 /* HexaworldCell.swift */; };
 		F1B3C3421969503100366758 /* HexaworldCore.h in Headers */ = {isa = PBXBuildFile; fileRef = F1B3C3411969503100366758 /* HexaworldCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1B3C3481969503100366758 /* HexaworldCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B3C33C1969503100366758 /* HexaworldCore.framework */; };
 		F1B3C3E01969583400366758 /* HexaworldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3C3DF1969583400366758 /* HexaworldTests.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F1190A3E196A9F11007BB311 /* HexaworldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaworldCell.swift; sourceTree = "<group>"; };
 		F1B3C33C1969503100366758 /* HexaworldCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HexaworldCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1B3C3401969503100366758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1B3C3411969503100366758 /* HexaworldCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HexaworldCore.h; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				F1B3C3411969503100366758 /* HexaworldCore.h */,
 				F1B3C33F1969503100366758 /* Supporting Files */,
 				F1B3C3E11969587300366758 /* Hexaworld.swift */,
+				F1190A3E196A9F11007BB311 /* HexaworldCell.swift */,
 			);
 			path = HexaworldCore;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1190A3F196A9F11007BB311 /* HexaworldCell.swift in Sources */,
 				F1B3C3E21969587300366758 /* Hexaworld.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
