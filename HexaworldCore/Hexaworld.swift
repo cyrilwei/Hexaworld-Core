@@ -56,8 +56,16 @@ class Hexaworld {
         let cellCount = columns * rows + columns / 2
         cells = Array<HexaworldCell?>(count: cellCount, repeatedValue: nil)
         
-        for i in 0..<cellCount {
-            cells[i] = HexaworldCell()
+        for col in 0..<columns {
+            for row in 0...rows {
+                let index = cellIndex(col, row: row)
+                
+                if index == -1 {
+                    continue
+                }
+                
+                cells[index] = HexaworldCell(column: col, row: row)
+            }
         }
     }
 }

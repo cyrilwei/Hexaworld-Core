@@ -66,4 +66,18 @@ class HexaworldTests: XCTestCase {
             XCTFail()
         }
     }
+    
+    func test_returned_cell_should_at_same_column_and_row() {
+        let expectedColumn = 3
+        let expectedRow = 2
+        
+        let cell = world[expectedColumn, expectedRow]
+        
+        if let realCell = cell? {
+            XCTAssertEqual(expectedColumn, realCell.column)
+            XCTAssertEqual(expectedRow, realCell.row)
+        } else {
+            XCTFail()
+        }
+    }
 }
