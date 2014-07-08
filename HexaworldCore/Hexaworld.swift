@@ -12,7 +12,7 @@ class Hexaworld {
     let columns: Int
     let rows: Int
     
-    let cells: Array<HexaworldCell?>
+    var cells: [HexaworldCell?]
     
     subscript(column: Int, row: Int) -> HexaworldCell? {
         get {
@@ -56,7 +56,7 @@ class Hexaworld {
         let cellCount = columns * rows + columns / 2
         cells = Array<HexaworldCell?>(count: cellCount, repeatedValue: nil)
         
-        for i in 0..cellCount {
+        for i in 0..<cellCount {
             cells[i] = HexaworldCell()
         }
     }
