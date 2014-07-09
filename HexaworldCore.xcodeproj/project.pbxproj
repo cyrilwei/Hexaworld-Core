@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F1135424196C0D5D00724D0F /* HexaworldDirectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1135423196C0D5D00724D0F /* HexaworldDirectionTests.swift */; };
 		F1190A3F196A9F11007BB311 /* HexaworldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1190A3E196A9F11007BB311 /* HexaworldCell.swift */; };
+		F12AEF74196D2CD400CA1B9E /* Hexaworld-Swap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12AEF73196D2CD400CA1B9E /* Hexaworld-Swap.swift */; };
+		F12AEF76196D2D9B00CA1B9E /* HexaworldSwapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12AEF75196D2D9B00CA1B9E /* HexaworldSwapTests.swift */; };
 		F1B3C3421969503100366758 /* HexaworldCore.h in Headers */ = {isa = PBXBuildFile; fileRef = F1B3C3411969503100366758 /* HexaworldCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1B3C3481969503100366758 /* HexaworldCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B3C33C1969503100366758 /* HexaworldCore.framework */; };
 		F1B3C3E01969583400366758 /* HexaworldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3C3DF1969583400366758 /* HexaworldTests.swift */; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		F1135423196C0D5D00724D0F /* HexaworldDirectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaworldDirectionTests.swift; sourceTree = "<group>"; };
 		F1190A3E196A9F11007BB311 /* HexaworldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaworldCell.swift; sourceTree = "<group>"; };
+		F12AEF73196D2CD400CA1B9E /* Hexaworld-Swap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hexaworld-Swap.swift"; sourceTree = "<group>"; };
+		F12AEF75196D2D9B00CA1B9E /* HexaworldSwapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaworldSwapTests.swift; sourceTree = "<group>"; };
 		F1B3C33C1969503100366758 /* HexaworldCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HexaworldCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1B3C3401969503100366758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1B3C3411969503100366758 /* HexaworldCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HexaworldCore.h; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 				F1B3C33F1969503100366758 /* Supporting Files */,
 				F1B3C3E11969587300366758 /* Hexaworld.swift */,
 				F1190A3E196A9F11007BB311 /* HexaworldCell.swift */,
+				F12AEF73196D2CD400CA1B9E /* Hexaworld-Swap.swift */,
 			);
 			path = HexaworldCore;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 				F1B3C34C1969503100366758 /* Supporting Files */,
 				F1B3C3DF1969583400366758 /* HexaworldTests.swift */,
 				F1135423196C0D5D00724D0F /* HexaworldDirectionTests.swift */,
+				F12AEF75196D2D9B00CA1B9E /* HexaworldSwapTests.swift */,
 			);
 			path = HexaworldCoreTests;
 			sourceTree = "<group>";
@@ -221,6 +227,7 @@
 			files = (
 				F1190A3F196A9F11007BB311 /* HexaworldCell.swift in Sources */,
 				F1B3C3E21969587300366758 /* Hexaworld.swift in Sources */,
+				F12AEF74196D2CD400CA1B9E /* Hexaworld-Swap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F12AEF76196D2D9B00CA1B9E /* HexaworldSwapTests.swift in Sources */,
 				F1135424196C0D5D00724D0F /* HexaworldDirectionTests.swift in Sources */,
 				F1B3C3E01969583400366758 /* HexaworldTests.swift in Sources */,
 			);
