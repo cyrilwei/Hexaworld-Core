@@ -8,6 +8,8 @@
 
 import Foundation
 
+let HEXA_NOT_FOUND = -1
+
 class HexaLayout {
     let columns: Int
     let rows: Int
@@ -15,5 +17,13 @@ class HexaLayout {
     init(columns: Int, rows: Int) {
         self.columns = columns
         self.rows = rows
+    }
+    
+    func cellIndex(column: Int, row: Int) -> Int {
+        return HEXA_NOT_FOUND
+    }
+    
+    func offsetForDirection(direction: HexaworldDirection) -> (Int, Int) {
+        return (Int.max, Int.max)
     }
 }

@@ -11,14 +11,15 @@ import Foundation
 enum HexaworldDirection {
     case Up
     case RightUp
+    case Right
     case RightDown
     case Down
     case LeftDown
+    case Left
     case LeftUp
 }
 
 class Hexaworld {
-    let notFound = -1
     
     let columns: Int
     let rows: Int
@@ -29,16 +30,16 @@ class Hexaworld {
     
     subscript(column: Int, row: Int) -> HexaworldCell? {
         get {
-            let index = cellIndex(column, row: row)
-            if index == notFound {
+            let index = layout.cellIndex(column, row: row)
+            if index == HEXA_NOT_FOUND {
                 return nil
             }
             
             return cells[index]
         }
         set {
-            let index = cellIndex(column, row: row)
-            if index == notFound {
+            let index = layout.cellIndex(column, row: row)
+            if index == HEXA_NOT_FOUND {
                 return
             }
             
@@ -47,48 +48,11 @@ class Hexaworld {
     }
     
     subscript(cell: HexaworldCell, direction: HexaworldDirection) -> HexaworldCell? {
-        var deltaColumn: Int;
-        var deltaRow: Int;
+        let (columnOffset, rowOffset) = layout.offsetForDirection(direction)
         
-        switch direction {
-        case .Up:
-            deltaColumn = 0
-            deltaRow = -1
-        case .RightUp:
-            deltaColumn = +1
-            deltaRow = -1
-        case .RightDown:
-            deltaColumn = +1
-            deltaRow = 0
-        case .Down:
-            deltaColumn = 0
-            deltaRow = +1
-        case .LeftDown:
-            deltaColumn = -1
-            deltaRow = 0
-        case .LeftUp:
-            deltaColumn = -1
-            deltaRow = -1
-        }
-        
-        return self[cell.column + deltaColumn, cell.row + deltaRow]
+        return self[cell.column + columnOffset, cell.row + rowOffset]
     }
 
-    func cellIndex(column: Int, row: Int) -> Int {
-        if column >= columns || column < 0 || row < 0 {
-            return notFound
-        }
-        
-        if column % 2 == 0 && row >= rows {
-            return notFound
-        }
-        
-        if column % 2 == 1 && row > rows {
-            return notFound
-        }
-        
-        return column * rows + row + column / 2
-    }
 
     init(layout: HexaLayout) {
         self.layout = layout
@@ -99,11 +63,15 @@ class Hexaworld {
         let cellCount = columns * rows + columns / 2
         cells = Array<HexaworldCell!>(count: cellCount, repeatedValue: nil)
 
+        createCells()
+    }
+    
+    func createCells() {
         for col in 0..<columns {
             for row in 0...rows {
-                let index = cellIndex(col, row: row)
+                let index = layout.cellIndex(col, row: row)
                 
-                if index == notFound {
+                if index == HEXA_NOT_FOUND {
                     continue
                 }
                 
