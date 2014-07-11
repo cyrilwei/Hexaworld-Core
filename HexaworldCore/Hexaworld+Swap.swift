@@ -1,5 +1,5 @@
 //
-//  Hexaworld-Swap.swift
+//  Hexaworld+Swap.swift
 //  HexaworldCore
 //
 //  Created by Cyril Wei on 7/9/14.

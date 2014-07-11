@@ -23,7 +23,9 @@ class Hexaworld {
     let columns: Int
     let rows: Int
     
-    var cells: [HexaworldCell?]
+    var cells: [HexaworldCell!]
+    
+    let layout: HexaLayout
     
     subscript(column: Int, row: Int) -> HexaworldCell? {
         get {
@@ -45,33 +47,31 @@ class Hexaworld {
     }
     
     subscript(cell: HexaworldCell, direction: HexaworldDirection) -> HexaworldCell? {
-        get {
-            var deltaColumn: Int;
-            var deltaRow: Int;
-            
-            switch direction {
-            case .Up:
-                deltaColumn = 0
-                deltaRow = -1
-            case .RightUp:
-                deltaColumn = +1
-                deltaRow = -1
-            case .RightDown:
-                deltaColumn = +1
-                deltaRow = 0
-            case .Down:
-                deltaColumn = 0
-                deltaRow = +1
-            case .LeftDown:
-                deltaColumn = -1
-                deltaRow = 0
-            case .LeftUp:
-                deltaColumn = -1
-                deltaRow = -1
-            }
-            
-            return self[cell.column + deltaColumn, cell.row + deltaRow]
+        var deltaColumn: Int;
+        var deltaRow: Int;
+        
+        switch direction {
+        case .Up:
+            deltaColumn = 0
+            deltaRow = -1
+        case .RightUp:
+            deltaColumn = +1
+            deltaRow = -1
+        case .RightDown:
+            deltaColumn = +1
+            deltaRow = 0
+        case .Down:
+            deltaColumn = 0
+            deltaRow = +1
+        case .LeftDown:
+            deltaColumn = -1
+            deltaRow = 0
+        case .LeftUp:
+            deltaColumn = -1
+            deltaRow = -1
         }
+        
+        return self[cell.column + deltaColumn, cell.row + deltaRow]
     }
 
     func cellIndex(column: Int, row: Int) -> Int {
@@ -90,12 +90,14 @@ class Hexaworld {
         return column * rows + row + column / 2
     }
 
-    init(columns: Int, rows: Int) {
-        self.columns = columns;
-        self.rows = rows;
+    init(layout: HexaLayout) {
+        self.layout = layout
+        
+        columns = layout.columns;
+        rows = layout.rows;
         
         let cellCount = columns * rows + columns / 2
-        cells = Array<HexaworldCell?>(count: cellCount, repeatedValue: nil)
+        cells = Array<HexaworldCell!>(count: cellCount, repeatedValue: nil)
 
         for col in 0..<columns {
             for row in 0...rows {

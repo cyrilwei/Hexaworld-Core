@@ -13,16 +13,15 @@ class HexaworldSwapTests: XCTestCase {
     let expectedColumns = 5
     let expectedRows = 3
     
-    var world = Hexaworld(columns: 0, rows: 0)
+    var world: Hexaworld!
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        world = Hexaworld(columns: expectedColumns, rows: expectedRows)
+        
+        world = Hexaworld(layout: HexaLayout.createLayout(expectedColumns, rows: expectedRows))
     }
-
+    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
