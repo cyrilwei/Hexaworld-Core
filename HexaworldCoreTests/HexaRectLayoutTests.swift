@@ -22,7 +22,7 @@ class HexaRectLayoutTests: XCTestCase {
     }
 
     func test_should_create_HexaRectLayout_with_columns_and_rows() {
-        let layout = HexaLayout.createLayout(expectedColumns, rows: expectedRows)
+        let layout = HexaLayout.createLandscapeLayout(expectedColumns, rows: expectedRows)
         
         XCTAssertTrue(layout is HexaRectLayout)
     }

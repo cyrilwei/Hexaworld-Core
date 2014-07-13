@@ -14,9 +14,13 @@ class HexaLayout {
     let columns: Int
     let rows: Int
     
-    init(columns: Int, rows: Int) {
+    let orientation: HexaOrientation
+    
+    init(columns: Int, rows: Int, orientation: HexaOrientation) {
         self.columns = columns
         self.rows = rows
+        
+        self.orientation = orientation
     }
     
     func cellIndex(column: Int, row: Int) -> Int {

@@ -18,7 +18,7 @@ class HexaworldTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        world = Hexaworld(layout: HexaLayout.createLayout(expectedColumns, rows: expectedRows))
+        world = Hexaworld(layout: HexaLayout.createLandscapeLayout(expectedColumns, rows: expectedRows))
     }
     
     override func tearDown() {
