@@ -63,10 +63,10 @@ class Hexaworld {
         let cellCount = columns * rows + columns / 2
         cells = Array<HexaworldCell!>(count: cellCount, repeatedValue: nil)
 
-        createCells()
+        fillCells()
     }
     
-    func createCells() {
+    func fillCells() {
         for col in 0..<columns {
             for row in 0...rows {
                 let index = layout.cellIndex(col, row: row)
