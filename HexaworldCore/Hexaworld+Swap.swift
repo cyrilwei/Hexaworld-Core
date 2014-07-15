@@ -14,7 +14,7 @@ extension Hexaworld {
             return nil
         }
         
-        let swappedCell = self[cell, direction]
+        let swappedCell = cellFromCell(cell, direction: direction)
         
         if let realSwappedCell = swappedCell? {
             if !realSwappedCell.movable{
@@ -48,7 +48,7 @@ extension Hexaworld {
             return false
         }
         
-        let targetCell = self[cell, direction]
+        let targetCell = cellFromCell(cell, direction: direction)
         
         if let realTargetCell = targetCell? {
             return realTargetCell.movable

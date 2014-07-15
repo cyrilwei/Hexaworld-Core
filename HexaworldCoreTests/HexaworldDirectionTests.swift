@@ -31,7 +31,7 @@ class HexaworldDirectionTests: XCTestCase {
         let originalCellRow = 1
         let centerCell = world[originalCellColumn, originalCellRow]
         
-        let cell = world[centerCell!, .Up]
+        let cell = world.cellFromCell(centerCell!, direction: .Up)
         
         if let realCell = cell? {
             XCTAssertEqual(originalCellColumn, realCell.column)
@@ -46,7 +46,7 @@ class HexaworldDirectionTests: XCTestCase {
         let originalCellRow = 0
         let centerCell = world[originalCellColumn, originalCellRow]
         
-        let cell = world[centerCell!, .Up]
+        let cell = world.cellFromCell(centerCell!, direction: .Up)
         
         if let realCell = cell? {
             XCTFail()
@@ -59,7 +59,7 @@ class HexaworldDirectionTests: XCTestCase {
         let originalCellRow = 1
         let centerCell = world[originalCellColumn, originalCellRow]
         
-        let cell = world[centerCell!, .RightUp]
+        let cell = world.cellFromCell(centerCell!, direction: .RightUp)
         
         if let realCell = cell? {
             XCTAssertEqual(originalCellColumn + 1, realCell.column)
@@ -74,7 +74,7 @@ class HexaworldDirectionTests: XCTestCase {
         let originalCellRow = 0
         let centerCell = world[originalCellColumn, originalCellRow]
         
-        let cell = world[centerCell!, .RightUp]
+        let cell = world.cellFromCell(centerCell!, direction: .RightUp)
         
         if let realCell = cell? {
             XCTFail()
@@ -87,7 +87,7 @@ class HexaworldDirectionTests: XCTestCase {
         let originalCellRow = 1
         let centerCell = world[originalCellColumn, originalCellRow]
         
-        let cell = world[centerCell!, .RightDown]
+        let cell = world.cellFromCell(centerCell!, direction: .RightDown)
         
         if let realCell = cell? {
             XCTAssertEqual(originalCellColumn + 1, realCell.column)
@@ -102,7 +102,7 @@ class HexaworldDirectionTests: XCTestCase {
         let originalCellRow = 3
         let centerCell = world[originalCellColumn, originalCellRow]
         
-        let cell = world[centerCell!, .RightDown]
+        let cell = world.cellFromCell(centerCell!, direction: .RightDown)
         
         if let realCell = cell? {
             XCTFail()
@@ -115,7 +115,7 @@ class HexaworldDirectionTests: XCTestCase {
         let originalCellRow = 1
         let centerCell = world[originalCellColumn, originalCellRow]
         
-        let cell = world[centerCell!, .Down]
+        let cell = world.cellFromCell(centerCell!, direction: .Down)
         
         if let realCell = cell? {
             XCTAssertEqual(originalCellColumn, realCell.column)
@@ -130,7 +130,7 @@ class HexaworldDirectionTests: XCTestCase {
         let originalCellRow = 3
         let centerCell = world[originalCellColumn, originalCellRow]
         
-        let cell = world[centerCell!, .Down]
+        let cell = world.cellFromCell(centerCell!, direction: .Down)
         
         if let realCell = cell? {
             XCTFail()
@@ -143,7 +143,7 @@ class HexaworldDirectionTests: XCTestCase {
         let originalCellRow = 1
         let centerCell = world[originalCellColumn, originalCellRow]
         
-        let cell = world[centerCell!, .LeftDown]
+        let cell = world.cellFromCell(centerCell!, direction: .LeftDown)
         
         if let realCell = cell? {
             XCTAssertEqual(originalCellColumn - 1, realCell.column)
@@ -158,7 +158,7 @@ class HexaworldDirectionTests: XCTestCase {
         let originalCellRow = 3
         let centerCell = world[originalCellColumn, originalCellRow]
         
-        let cell = world[centerCell!, .LeftDown]
+        let cell = world.cellFromCell(centerCell!, direction: .LeftDown)
         
         if let realCell = cell? {
             XCTFail()
@@ -171,7 +171,7 @@ class HexaworldDirectionTests: XCTestCase {
         let originalCellRow = 1
         let centerCell = world[originalCellColumn, originalCellRow]
         
-        let cell = world[centerCell!, .LeftUp]
+        let cell = world.cellFromCell(centerCell!, direction: .LeftUp)
         
         if let realCell = cell? {
             XCTAssertEqual(originalCellColumn - 1, realCell.column)
@@ -186,7 +186,7 @@ class HexaworldDirectionTests: XCTestCase {
         let originalCellRow = 0
         let centerCell = world[originalCellColumn, originalCellRow]
         
-        let cell = world[centerCell!, .LeftUp]
+        let cell = world.cellFromCell(centerCell!, direction: .LeftUp)
         
         if let realCell = cell? {
             XCTFail()
