@@ -10,9 +10,17 @@ import Foundation
 
 extension Hexaworld {
     func swap(cell: HexaworldCell, toDirection direction: HexaworldDirection) -> HexaworldCell? {
+        if !cell.movable{
+            return nil
+        }
+        
         let swappedCell = self[cell, direction]
         
         if let realSwappedCell = swappedCell? {
+            if !realSwappedCell.movable{
+                return nil
+            }
+            
             let originalColumn = cell.column
             let originalRow = cell.row
             
@@ -33,5 +41,19 @@ extension Hexaworld {
         }
         
         return nil
+    }
+    
+    func canSwap(cell: HexaworldCell, toDirection direction: HexaworldDirection) -> Bool {
+        if !cell.movable {
+            return false
+        }
+        
+        let targetCell = self[cell, direction]
+        
+        if let realTargetCell = targetCell? {
+            return realTargetCell.movable
+        }
+        
+        return false
     }
 }
