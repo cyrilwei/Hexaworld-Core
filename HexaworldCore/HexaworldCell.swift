@@ -8,7 +8,9 @@
 
 import Foundation
 
-class HexaworldCell {
+let CELL_HASH_SHIFT = 100
+
+class HexaworldCell: Hashable {
     var column: Int
     var row: Int
     
@@ -18,4 +20,12 @@ class HexaworldCell {
         self.column = column
         self.row = row
     }
+
+    var hashValue: Int {
+        return row * CELL_HASH_SHIFT + column
+    }
+}
+
+func ==(lhs: HexaworldCell, rhs: HexaworldCell) -> Bool {
+    return lhs.column == rhs.column && lhs.row == rhs.row
 }

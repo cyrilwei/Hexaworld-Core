@@ -13,7 +13,7 @@ class Hexaworld {
     let columns: Int
     let rows: Int
     
-    var cells: [HexaworldCell!]
+    var cells = [Int: HexaworldCell]()
     
     let layout: HexaLayout
     
@@ -24,7 +24,7 @@ class Hexaworld {
                 return nil
             }
             
-            return cells[index]
+            return cells[row * CELL_HASH_SHIFT + column]
         }
         set {
             let index = layout.cellIndex(column, row: row)
@@ -32,7 +32,7 @@ class Hexaworld {
                 return
             }
             
-            cells[index] = newValue
+            cells[newValue!.hashValue] = newValue
         }
     }
     
@@ -47,9 +47,6 @@ class Hexaworld {
         
         columns = layout.columns;
         rows = layout.rows;
-        
-        let cellCount = columns * rows + columns / 2
-        cells = Array<HexaworldCell!>(count: cellCount, repeatedValue: nil)
 
         fillCells()
     }
@@ -63,7 +60,8 @@ class Hexaworld {
                     continue
                 }
                 
-                cells[index] = HexaworldCell(column: col, row: row)
+                let cell = HexaworldCell(column: col, row: row)
+                cells[cell.hashValue] = cell
             }
         }
     }
