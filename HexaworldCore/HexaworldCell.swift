@@ -8,8 +8,6 @@
 
 import Foundation
 
-let CELL_HASH_SHIFT = 100
-
 class HexaworldCell: Hashable {
     var column: Int
     var row: Int
@@ -22,7 +20,7 @@ class HexaworldCell: Hashable {
     }
 
     var hashValue: Int {
-        return row * CELL_HASH_SHIFT + column
+        return row * HEXA_HASH_SHIFT + column
     }
 }
 

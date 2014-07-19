@@ -8,14 +8,19 @@
 
 import Foundation
 
+let HEXA_HASH_SHIFT = 100
+
 class Hexaworld {
-    
     let columns: Int
     let rows: Int
     
     var cells = [Int: HexaworldCell]()
     
     let layout: HexaLayout
+    
+    func cellHashValue(column: Int, row: Int) -> Int {
+        return row * HEXA_HASH_SHIFT + column
+    }
     
     subscript(column: Int, row: Int) -> HexaworldCell? {
         get {
@@ -24,7 +29,7 @@ class Hexaworld {
                 return nil
             }
             
-            return cells[row * CELL_HASH_SHIFT + column]
+            return cells[cellHashValue(column, row: row)]
         }
         set {
             let index = layout.cellIndex(column, row: row)
@@ -32,7 +37,7 @@ class Hexaworld {
                 return
             }
             
-            cells[newValue!.hashValue] = newValue
+            cells[cellHashValue(column, row: row)] = newValue
         }
     }
     
