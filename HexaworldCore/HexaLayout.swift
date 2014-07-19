@@ -27,7 +27,11 @@ class HexaLayout {
         return HEXA_NOT_FOUND
     }
     
-    func offsetForDirection(direction: HexaworldDirection) -> (Int, Int) {
+    func offsetForDirection(direction: HexaDirection) -> (Int, Int) {
         return (Int.max, Int.max)
+    }
+    
+    func directionFromOffset(columnOffset: Int, rowOffset: Int) -> HexaDirection {
+        return .Unsupported
     }
 }

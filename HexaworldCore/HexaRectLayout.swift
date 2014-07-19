@@ -29,7 +29,7 @@ class HexaRectLayout: HexaLayout {
         return column * rows + row + column / 2
     }
     
-    override func offsetForDirection(direction: HexaworldDirection) -> (Int, Int) {
+    override func offsetForDirection(direction: HexaDirection) -> (Int, Int) {
         var columnOffset: Int;
         var rowOffset: Int;
 
@@ -57,5 +57,28 @@ class HexaRectLayout: HexaLayout {
         }
         
         return (columnOffset, rowOffset)
+    }
+    
+    override func directionFromOffset(columnOffset: Int, rowOffset: Int) -> HexaDirection {
+        var direction: HexaDirection
+        
+        switch (columnOffset, rowOffset) {
+        case (0, -1):
+            direction = .Up
+        case (+1, -1):
+            direction = .RightUp
+        case (+1, 0):
+            direction = .RightDown
+        case (0, +1):
+            direction = .Down
+        case (-1, 0):
+            direction = .LeftDown
+        case (-1, -1):
+            direction = .LeftUp
+        default:
+            direction = super.directionFromOffset(columnOffset, rowOffset: rowOffset)
+        }
+        
+        return direction
     }
 }
