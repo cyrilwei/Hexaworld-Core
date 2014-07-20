@@ -1,5 +1,5 @@
 //
-//  HexaworldCell.swift
+//  HexaCell.swift
 //  HexaworldCore
 //
 //  Created by Cyril Wei on 7/7/14.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HexaworldCell: Hashable {
+class HexaCell: Hashable {
     var column: Int
     var row: Int
     
@@ -24,6 +24,6 @@ class HexaworldCell: Hashable {
     }
 }
 
-func ==(lhs: HexaworldCell, rhs: HexaworldCell) -> Bool {
+func ==(lhs: HexaCell, rhs: HexaCell) -> Bool {
     return lhs.column == rhs.column && lhs.row == rhs.row
 }

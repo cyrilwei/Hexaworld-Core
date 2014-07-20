@@ -21,7 +21,7 @@ enum HexaDirection {
 }
 
 extension Hexaworld {
-    func cellFromCell(cell: HexaworldCell, direction: HexaDirection) -> HexaworldCell? {
+    func cellFromCell(cell: HexaCell, direction: HexaDirection) -> HexaCell? {
         let (columnOffset, rowOffset) = layout.offsetForDirection(direction)
         
         return self[cell.column + columnOffset, cell.row + rowOffset]

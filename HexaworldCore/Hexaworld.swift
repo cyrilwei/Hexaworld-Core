@@ -14,7 +14,7 @@ class Hexaworld {
     let columns: Int
     let rows: Int
     
-    var cells = [Int: HexaworldCell]()
+    var cells = [Int: HexaCell]()
     
     let layout: HexaLayout
     
@@ -22,7 +22,7 @@ class Hexaworld {
         return row * HEXA_HASH_SHIFT + column
     }
     
-    subscript(column: Int, row: Int) -> HexaworldCell? {
+    subscript(column: Int, row: Int) -> HexaCell? {
         get {
             let index = layout.cellIndex(column, row: row)
             if index == HEXA_NOT_FOUND {
@@ -41,7 +41,7 @@ class Hexaworld {
         }
     }
     
-//    subscript(cell: HexaworldCell, direction: HexaworldDirection) -> HexaworldCell? {
+//    subscript(cell: HexaCell, direction: HexaworldDirection) -> HexaCell? {
 //        let (columnOffset, rowOffset) = layout.offsetForDirection(direction)
 //        
 //        return self[cell.column + columnOffset, cell.row + rowOffset]
@@ -65,7 +65,7 @@ class Hexaworld {
                     continue
                 }
                 
-                let cell = HexaworldCell(column: col, row: row)
+                let cell = HexaCell(column: col, row: row)
                 cells[cell.hashValue] = cell
             }
         }
