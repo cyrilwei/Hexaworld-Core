@@ -18,6 +18,18 @@ class Hexaworld {
     
     let layout: HexaLayout
     
+    var xFactor: CGFloat {
+    get {
+        return layout.orientation.xFactor
+    }
+    }
+
+    var yFactor: CGFloat {
+    get {
+        return layout.orientation.yFactor
+    }
+    }
+
     func cellHashValue(column: Int, row: Int) -> Int {
         return row * HEXA_HASH_SHIFT + column
     }

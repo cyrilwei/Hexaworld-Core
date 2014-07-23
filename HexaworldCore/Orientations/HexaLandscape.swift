@@ -9,6 +9,10 @@
 import Foundation
 
 class HexaLandscape: HexaOrientation {
+    init() {
+        super.init(xFactor: 1.5, yFactor: M_2_COS_PI_6)
+    }
+    
     override func offsetForDirection(direction: HexaDirection) -> (Int, Int) {
         var columnOffset: Int;
         var rowOffset: Int;

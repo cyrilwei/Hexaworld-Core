@@ -9,5 +9,7 @@
 import Foundation
 
 class HexaPortrait: HexaOrientation {
-    
+    init() {
+        super.init(xFactor: M_2_COS_PI_6, yFactor: 1.5)
+    }
 }

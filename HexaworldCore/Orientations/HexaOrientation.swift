@@ -8,7 +8,17 @@
 
 import Foundation
 
+let M_2_COS_PI_6 = 2.0 * cos(M_PI / 6)
+
 class HexaOrientation {
+    let xFactor: CGFloat
+    let yFactor: CGFloat
+    
+    init(xFactor: CGFloat, yFactor: CGFloat) {
+        self.xFactor = xFactor
+        self.yFactor = yFactor
+    }
+    
     func offsetForDirection(direction: HexaDirection) -> (Int, Int) {
         return (Int.max, Int.max)
     }
