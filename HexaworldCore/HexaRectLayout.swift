@@ -10,7 +10,7 @@ import Foundation
 
 class HexaRectLayout: HexaLayout {
     init(columns: Int, rows: Int) {
-        super.init(columns: columns, rows: rows, orientation: .Landscape)
+        super.init(columns: columns, rows: rows, orientation: HexaLandscape())
     }
     
     override func cellIndex(column: Int, row: Int) -> Int {
@@ -27,58 +27,5 @@ class HexaRectLayout: HexaLayout {
         }
         
         return column * rows + row + column / 2
-    }
-    
-    override func offsetForDirection(direction: HexaDirection) -> (Int, Int) {
-        var columnOffset: Int;
-        var rowOffset: Int;
-
-        switch direction {
-        case .Up:
-            columnOffset = 0
-            rowOffset = -1
-        case .RightUp:
-            columnOffset = +1
-            rowOffset = -1
-        case .RightDown:
-            columnOffset = +1
-            rowOffset = 0
-        case .Down:
-            columnOffset = 0
-            rowOffset = +1
-        case .LeftDown:
-            columnOffset = -1
-            rowOffset = 0
-        case .LeftUp:
-            columnOffset = -1
-            rowOffset = -1
-        default:
-            (columnOffset, rowOffset) = super.offsetForDirection(direction)
-        }
-        
-        return (columnOffset, rowOffset)
-    }
-    
-    override func directionFromOffset(columnOffset: Int, rowOffset: Int) -> HexaDirection {
-        var direction: HexaDirection
-        
-        switch (columnOffset, rowOffset) {
-        case (0, -1):
-            direction = .Up
-        case (+1, -1):
-            direction = .RightUp
-        case (+1, 0):
-            direction = .RightDown
-        case (0, +1):
-            direction = .Down
-        case (-1, 0):
-            direction = .LeftDown
-        case (-1, -1):
-            direction = .LeftUp
-        default:
-            direction = super.directionFromOffset(columnOffset, rowOffset: rowOffset)
-        }
-        
-        return direction
-    }
+    }    
 }

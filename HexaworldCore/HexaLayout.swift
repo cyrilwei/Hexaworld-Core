@@ -28,10 +28,10 @@ class HexaLayout {
     }
     
     func offsetForDirection(direction: HexaDirection) -> (Int, Int) {
-        return (Int.max, Int.max)
+        return orientation.offsetForDirection(direction)
     }
     
     func directionFromOffset(columnOffset: Int, rowOffset: Int) -> HexaDirection {
-        return .Unsupported
+        return orientation.directionFromOffset(columnOffset, rowOffset: rowOffset)
     }
 }
