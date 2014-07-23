@@ -14,18 +14,18 @@ class HexaRectPortraitLayout: HexaLayout {
     }
     
     override func cellIndex(column: Int, row: Int) -> Int {
-        if column >= columns || column < 0 || row < 0 {
+        if row >= rows || column < 0 || row < 0 {
             return HEXA_NOT_FOUND
         }
         
-        if column % 2 == 0 && row >= rows {
+        if row % 2 == 0 && column >= columns {
             return HEXA_NOT_FOUND
         }
         
-        if column % 2 == 1 && row > rows {
+        if row % 2 == 1 && column > columns {
             return HEXA_NOT_FOUND
         }
         
-        return column * rows + row + column / 2
+        return row * columns + column + row / 2
     }
 }

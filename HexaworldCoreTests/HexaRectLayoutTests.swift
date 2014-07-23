@@ -18,7 +18,7 @@ class HexaRectLayoutTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        layout = HexaLayout.createLandscapeLayout(expectedColumns, rows: expectedRows)
+        layout = HexaLayout.createRectLandscapeLayout(expectedColumns, rows: expectedRows)
     }
     
     override func tearDown() {
