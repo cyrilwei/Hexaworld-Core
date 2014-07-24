@@ -8,7 +8,7 @@
 
 import Foundation
 
-let M_2_COS_PI_6 = 2.0 * cos(M_PI / 6)
+let M_2_COS_PI_6 = CGFloat(2.0 * cos(M_PI / 6))
 
 class HexaOrientation {
     let xFactor: CGFloat

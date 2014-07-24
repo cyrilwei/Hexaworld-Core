@@ -8,23 +8,23 @@
 
 import Foundation
 
-let HEXA_HASH_SHIFT = 100
+public let HEXA_HASH_SHIFT = 100
 
-class Hexaworld {
-    let columns: Int
-    let rows: Int
+public class Hexaworld {
+    public let columns: Int
+    public let rows: Int
     
-    var cells = [Int: HexaCell]()
+    public var cells = [Int: HexaCell]()
     
-    let layout: HexaLayout
+    public let layout: HexaLayout
     
-    var xFactor: CGFloat {
+    public var xFactor: CGFloat {
     get {
         return layout.orientation.xFactor
     }
     }
 
-    var yFactor: CGFloat {
+    public var yFactor: CGFloat {
     get {
         return layout.orientation.yFactor
     }
@@ -34,7 +34,7 @@ class Hexaworld {
         return row * HEXA_HASH_SHIFT + column
     }
     
-    subscript(column: Int, row: Int) -> HexaCell? {
+    public subscript(column: Int, row: Int) -> HexaCell? {
         get {
             let index = layout.cellIndex(column, row: row)
             if index == HEXA_NOT_FOUND {
@@ -59,7 +59,7 @@ class Hexaworld {
 //        return self[cell.column + columnOffset, cell.row + rowOffset]
 //    }
 
-    init(layout: HexaLayout) {
+    public init(layout: HexaLayout) {
         self.layout = layout
         
         columns = layout.columns;
@@ -68,7 +68,7 @@ class Hexaworld {
         fillCells()
     }
     
-    func fillCells() {
+    public func fillCells() {
         for col in 0..<columns {
             for row in 0...rows {
                 let index = layout.cellIndex(col, row: row)

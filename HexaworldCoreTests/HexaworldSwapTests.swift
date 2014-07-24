@@ -17,7 +17,7 @@ class HexaworldSwapTests: XCTestCase {
     let originalCellRow = 1
 
     var world: Hexaworld!
-    
+        
     override func setUp() {
         super.setUp()
         

@@ -8,9 +8,9 @@
 
 import Foundation
 
-let HEXA_NOT_FOUND = -1
+public let HEXA_NOT_FOUND = -1
 
-class HexaLayout {
+public class HexaLayout {
     let columns: Int
     let rows: Int
     
@@ -23,15 +23,15 @@ class HexaLayout {
         self.orientation = orientation
     }
     
-    func cellIndex(column: Int, row: Int) -> Int {
+    public func cellIndex(column: Int, row: Int) -> Int {
         return HEXA_NOT_FOUND
     }
     
-    func offsetForDirection(direction: HexaDirection) -> (Int, Int) {
+    public func offsetForDirection(direction: HexaDirection) -> (Int, Int) {
         return orientation.offsetForDirection(direction)
     }
     
-    func directionFromOffset(columnOffset: Int, rowOffset: Int) -> HexaDirection {
+    public func directionFromOffset(columnOffset: Int, rowOffset: Int) -> HexaDirection {
         return orientation.directionFromOffset(columnOffset, rowOffset: rowOffset)
     }
 }

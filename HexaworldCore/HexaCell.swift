@@ -8,22 +8,22 @@
 
 import Foundation
 
-class HexaCell: Hashable {
-    var column: Int
-    var row: Int
+public class HexaCell: Hashable {
+    public var column: Int
+    public var row: Int
     
-    var movable: Bool = true
+    public var movable: Bool = true
     
-    init(column: Int, row: Int) {
+    public init(column: Int, row: Int) {
         self.column = column
         self.row = row
     }
 
-    var hashValue: Int {
+    public var hashValue: Int {
         return row * HEXA_HASH_SHIFT + column
     }
 }
 
-func ==(lhs: HexaCell, rhs: HexaCell) -> Bool {
+public func ==(lhs: HexaCell, rhs: HexaCell) -> Bool {
     return lhs.column == rhs.column && lhs.row == rhs.row
 }

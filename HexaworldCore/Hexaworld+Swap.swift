@@ -9,7 +9,7 @@
 import Foundation
 
 extension Hexaworld {
-    func swap(cell: HexaCell, toDirection direction: HexaDirection) -> HexaCell? {
+    public func swap(cell: HexaCell, toDirection direction: HexaDirection) -> HexaCell? {
         if !cell.movable{
             return nil
         }
@@ -43,7 +43,7 @@ extension Hexaworld {
         return nil
     }
     
-    func canSwap(cell: HexaCell, toDirection direction: HexaDirection) -> Bool {
+    public func canSwap(cell: HexaCell, toDirection direction: HexaDirection) -> Bool {
         if !cell.movable {
             return false
         }

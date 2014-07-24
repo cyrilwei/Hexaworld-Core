@@ -9,7 +9,7 @@
 import Foundation
 
 extension Hexaworld {
-    func fillHoles(direction: HexaDirection) {
+    public func fillHoles(direction: HexaDirection) {
         let (columnOffset, rowOffset) = layout.offsetForDirection(direction)
         
         for column in 0...columns {

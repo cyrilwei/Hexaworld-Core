@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum HexaDirection {
+public enum HexaDirection {
     case Up
     case RightUp
     case Right
@@ -21,7 +21,7 @@ enum HexaDirection {
 }
 
 extension Hexaworld {
-    func cellFromCell(cell: HexaCell, direction: HexaDirection) -> HexaCell? {
+    public func cellFromCell(cell: HexaCell, direction: HexaDirection) -> HexaCell? {
         let (columnOffset, rowOffset) = layout.offsetForDirection(direction)
         
         return self[cell.column + columnOffset, cell.row + rowOffset]

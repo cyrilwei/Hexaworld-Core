@@ -8,12 +8,12 @@
 
 import Foundation
 
-class HexaRectLayout: HexaLayout {
+public class HexaRectLayout: HexaLayout {
     init(columns: Int, rows: Int) {
         super.init(columns: columns, rows: rows, orientation: HexaLandscape())
     }
     
-    override func cellIndex(column: Int, row: Int) -> Int {
+    override public func cellIndex(column: Int, row: Int) -> Int {
         if column >= columns || column < 0 || row < 0 {
             return HEXA_NOT_FOUND
         }
