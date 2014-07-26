@@ -30,7 +30,7 @@ public class Hexaworld {
     }
     }
 
-    func cellHashValue(column: Int, row: Int) -> Int {
+    public func cellHashValue(column: Int, row: Int) -> Int {
         return row * HEXA_HASH_SHIFT + column
     }
     
