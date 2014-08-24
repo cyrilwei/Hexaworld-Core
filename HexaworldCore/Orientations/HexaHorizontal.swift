@@ -1,5 +1,5 @@
 //
-//  HexaPortrait.swift
+//  HexaHorizontal.swift
 //  HexaworldCore
 //
 //  Created by Cyril Wei on 7/23/14.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HexaPortrait: HexaOrientation {
+class HexaHorizontal: HexaOrientation {
     init() {
         super.init(xFactor: M_2_COS_PI_6, yFactor: 1.5)
     }

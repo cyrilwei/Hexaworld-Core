@@ -10,7 +10,7 @@ import Foundation
 
 class HexaRectPortraitLayout: HexaLayout {
     init(columns: Int, rows: Int) {
-        super.init(columns: columns, rows: rows, orientation: HexaPortrait())
+        super.init(columns: columns, rows: rows, orientation: HexaHorizontal())
     }
     
     public override func cellIndex(column: Int, row: Int) -> Int {

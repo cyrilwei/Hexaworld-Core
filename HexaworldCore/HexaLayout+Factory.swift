@@ -9,11 +9,11 @@
 import Foundation
 
 extension HexaLayout {
-    public class func createRectLandscapeLayout(columns: Int, rows: Int) -> HexaLayout {
+    public class func createRectVerticalLayout(columns: Int, rows: Int) -> HexaLayout {
         return HexaRectLayout(columns: columns, rows: rows)
     }
     
-    public class func createRectPortraitLayout(columns: Int, rows: Int) -> HexaLayout {
+    public class func createRectHorizontalLayout(columns: Int, rows: Int) -> HexaLayout {
         return HexaRectPortraitLayout(columns: columns, rows: rows)
     }
 }
