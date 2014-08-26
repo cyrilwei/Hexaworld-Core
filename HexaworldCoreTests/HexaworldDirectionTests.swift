@@ -13,7 +13,7 @@ class HexaworldDirectionTests: XCTestCase {
     let expectedColumns = 5
     let expectedRows = 3
     
-    var world: Hexaworld!
+    var world: Hexaworld<Int>!
     
     override func setUp() {
         super.setUp()

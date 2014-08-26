@@ -8,13 +8,11 @@
 
 import Foundation
 
-public let HEXA_HASH_SHIFT = 100
-
-public class Hexaworld {
+public class Hexaworld <T> {
     public let columns: Int
     public let rows: Int
     
-    public var cells = [Int: HexaCell]()
+    public var cells = [Hexacube: T]()
     
     public let layout: HexaLayout
     
@@ -30,18 +28,14 @@ public class Hexaworld {
     }
     }
 
-    public func cellHashValue(column: Int, row: Int) -> Int {
-        return row * HEXA_HASH_SHIFT + column
-    }
-    
-    public subscript(column: Int, row: Int) -> HexaCell? {
+    public subscript(column: Int, row: Int) -> T? {
         get {
             let index = layout.cellIndex(column, row: row)
             if index == HEXA_NOT_FOUND {
                 return nil
             }
             
-            return cells[cellHashValue(column, row: row)]
+            return cells[Hexacube(v: (column, row))]
         }
         set {
             let index = layout.cellIndex(column, row: row)
@@ -49,7 +43,7 @@ public class Hexaworld {
                 return
             }
             
-            cells[cellHashValue(column, row: row)] = newValue
+            cells[Hexacube(v: (column, row))] = newValue
         }
     }
     
@@ -64,22 +58,20 @@ public class Hexaworld {
         
         columns = layout.columns;
         rows = layout.rows;
-
-        fillCells()
     }
     
-    public func fillCells() {
-        for col in 0..<columns {
-            for row in 0...rows {
-                let index = layout.cellIndex(col, row: row)
-                
-                if index == HEXA_NOT_FOUND {
-                    continue
-                }
-                
-                let cell = HexaCell(column: col, row: row)
-                cells[cell.hashValue] = cell
-            }
-        }
-    }
+//    public func fillCells() {
+//        for col in 0..<columns {
+//            for row in 0...rows {
+//                let index = layout.cellIndex(col, row: row)
+//                
+//                if index == HEXA_NOT_FOUND {
+//                    continue
+//                }
+//                
+//                let cell = T()
+//                cells[Hexacube(v: (col, row))] = cell
+//            }
+//        }
+//    }
 }

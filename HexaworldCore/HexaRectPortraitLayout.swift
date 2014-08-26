@@ -13,7 +13,7 @@ class HexaRectPortraitLayout: HexaLayout {
         super.init(columns: columns, rows: rows, orientation: HexaHorizontal())
     }
     
-    public override func cellIndex(column: Int, row: Int) -> Int {
+    internal override func cellIndex(column: Int, row: Int) -> Int {
         if row >= rows || column < 0 || row < 0 {
             return HEXA_NOT_FOUND
         }
