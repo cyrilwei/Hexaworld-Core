@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 public class Hexaworld <T> {
     public let columns: Int
@@ -53,4 +54,12 @@ public class Hexaworld <T> {
         columns = layout.columns;
         rows = layout.rows;
     }
+    
+    public func fill(fillBlock: (x: Int, y: Int, z: Int) -> T) {
+        for x in 0..<columns {
+            for z in 0..<rows {
+                self[x, z] = fillBlock(x: x, y: -(x + z), z: z)
+            }
+        }
+    }    
 }

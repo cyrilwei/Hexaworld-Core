@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 let M_2_COS_PI_6 = CGFloat(2.0 * cos(M_PI / 6))
 
