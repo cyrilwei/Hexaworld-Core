@@ -31,19 +31,9 @@ public class Hexaworld <T> {
 
     public subscript(column: Int, row: Int) -> T? {
         get {
-            let index = layout.cellIndex(column, row: row)
-            if index == HEXA_NOT_FOUND {
-                return nil
-            }
-            
             return cells[Hexacube(axial: (column, row))]
         }
         set {
-            let index = layout.cellIndex(column, row: row)
-            if index == HEXA_NOT_FOUND {
-                return
-            }
-            
             cells[Hexacube(axial: (column, row))] = newValue
         }
     }
