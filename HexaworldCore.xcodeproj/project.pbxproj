@@ -8,19 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		F10234F8197573ED00692FA4 /* Hexaworld+Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10234F7197573ED00692FA4 /* Hexaworld+Direction.swift */; };
-		F1135424196C0D5D00724D0F /* HexaworldDirectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1135423196C0D5D00724D0F /* HexaworldDirectionTests.swift */; };
 		F12559F1197E627E003FBFF0 /* HexaRectPortraitLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12559F0197E627E003FBFF0 /* HexaRectPortraitLayout.swift */; };
 		F1445D8319ACB687002BC1EF /* Hexacube.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1445D8219ACB687002BC1EF /* Hexacube.swift */; };
+		F1445D8519AF600E002BC1EF /* Hexaworld+Fill.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1445D8419AF600E002BC1EF /* Hexaworld+Fill.swift */; };
 		F172D751196FCB6000D25ED4 /* HexaLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172D750196FCB6000D25ED4 /* HexaLayout.swift */; };
 		F172D753196FCD9A00D25ED4 /* HexaRectLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172D752196FCD9A00D25ED4 /* HexaRectLayout.swift */; };
-		F172D755196FE48100D25ED4 /* HexaRectLayoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172D754196FE48100D25ED4 /* HexaRectLayoutTests.swift */; };
 		F172D757196FF28E00D25ED4 /* HexaLayout+Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172D756196FF28E00D25ED4 /* HexaLayout+Factory.swift */; };
 		F1A0FB1B197FEC1800A2A5CF /* HexaOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0FB1A197FEC1800A2A5CF /* HexaOrientation.swift */; };
 		F1A0FB1D197FEC4000A2A5CF /* HexaVertical.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0FB1C197FEC4000A2A5CF /* HexaVertical.swift */; };
 		F1A0FB1F197FEC9900A2A5CF /* HexaHorizontal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0FB1E197FEC9900A2A5CF /* HexaHorizontal.swift */; };
 		F1B3C3421969503100366758 /* HexaworldCore.h in Headers */ = {isa = PBXBuildFile; fileRef = F1B3C3411969503100366758 /* HexaworldCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F1B3C3481969503100366758 /* HexaworldCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B3C33C1969503100366758 /* HexaworldCore.framework */; };
-		F1B3C3E01969583400366758 /* HexaworldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3C3DF1969583400366758 /* HexaworldTests.swift */; };
 		F1B3C3E21969587300366758 /* Hexaworld.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B3C3E11969587300366758 /* Hexaworld.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,12 +34,11 @@
 
 /* Begin PBXFileReference section */
 		F10234F7197573ED00692FA4 /* Hexaworld+Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hexaworld+Direction.swift"; sourceTree = "<group>"; };
-		F1135423196C0D5D00724D0F /* HexaworldDirectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaworldDirectionTests.swift; sourceTree = "<group>"; };
 		F12559F0197E627E003FBFF0 /* HexaRectPortraitLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaRectPortraitLayout.swift; sourceTree = "<group>"; };
 		F1445D8219ACB687002BC1EF /* Hexacube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hexacube.swift; sourceTree = "<group>"; };
+		F1445D8419AF600E002BC1EF /* Hexaworld+Fill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hexaworld+Fill.swift"; sourceTree = "<group>"; };
 		F172D750196FCB6000D25ED4 /* HexaLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaLayout.swift; sourceTree = "<group>"; };
 		F172D752196FCD9A00D25ED4 /* HexaRectLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaRectLayout.swift; sourceTree = "<group>"; };
-		F172D754196FE48100D25ED4 /* HexaRectLayoutTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaRectLayoutTests.swift; sourceTree = "<group>"; };
 		F172D756196FF28E00D25ED4 /* HexaLayout+Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HexaLayout+Factory.swift"; sourceTree = "<group>"; };
 		F1A0FB1A197FEC1800A2A5CF /* HexaOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaOrientation.swift; sourceTree = "<group>"; };
 		F1A0FB1C197FEC4000A2A5CF /* HexaVertical.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaVertical.swift; sourceTree = "<group>"; };
@@ -51,7 +48,6 @@
 		F1B3C3411969503100366758 /* HexaworldCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HexaworldCore.h; sourceTree = "<group>"; };
 		F1B3C3471969503100366758 /* HexaworldCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexaworldCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1B3C34D1969503100366758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1B3C3DF1969583400366758 /* HexaworldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaworldTests.swift; sourceTree = "<group>"; };
 		F1B3C3E11969587300366758 /* Hexaworld.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hexaworld.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +111,7 @@
 				F10234F7197573ED00692FA4 /* Hexaworld+Direction.swift */,
 				F12559F0197E627E003FBFF0 /* HexaRectPortraitLayout.swift */,
 				F1445D8219ACB687002BC1EF /* Hexacube.swift */,
+				F1445D8419AF600E002BC1EF /* Hexaworld+Fill.swift */,
 			);
 			path = HexaworldCore;
 			sourceTree = "<group>";
@@ -131,9 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				F1B3C34C1969503100366758 /* Supporting Files */,
-				F1B3C3DF1969583400366758 /* HexaworldTests.swift */,
-				F1135423196C0D5D00724D0F /* HexaworldDirectionTests.swift */,
-				F172D754196FE48100D25ED4 /* HexaRectLayoutTests.swift */,
 			);
 			path = HexaworldCoreTests;
 			sourceTree = "<group>";
@@ -258,6 +252,7 @@
 				F172D753196FCD9A00D25ED4 /* HexaRectLayout.swift in Sources */,
 				F1A0FB1D197FEC4000A2A5CF /* HexaVertical.swift in Sources */,
 				F1445D8319ACB687002BC1EF /* Hexacube.swift in Sources */,
+				F1445D8519AF600E002BC1EF /* Hexaworld+Fill.swift in Sources */,
 				F1A0FB1F197FEC9900A2A5CF /* HexaHorizontal.swift in Sources */,
 				F12559F1197E627E003FBFF0 /* HexaRectPortraitLayout.swift in Sources */,
 				F172D757196FF28E00D25ED4 /* HexaLayout+Factory.swift in Sources */,
@@ -271,9 +266,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F172D755196FE48100D25ED4 /* HexaRectLayoutTests.swift in Sources */,
-				F1135424196C0D5D00724D0F /* HexaworldDirectionTests.swift in Sources */,
-				F1B3C3E01969583400366758 /* HexaworldTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

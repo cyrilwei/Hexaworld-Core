@@ -9,7 +9,7 @@
 import Foundation
 
 let HEXA_HASH_X_SHIFT = 16
-let HEXA_HASH_Y_SHIFT = 8
+let HEXA_MAX_MAP_SIZE = 1 << HEXA_HASH_X_SHIFT - 1
 
 public struct Hexacube {
     var x = 0
@@ -22,21 +22,25 @@ public struct Hexacube {
         self.z = z
     }
 
-    public init (v: (Int, Int, Int)) {
-        let (x, y, z) = v
+    public init (cube: (Int, Int, Int)) {
+        let (x, y, z) = cube
         self.init(x: x, y: y, z: z)
     }
 
-    public init (v: (Int, Int)) {
-        let (x, z) = v
+    public init (axial: (Int, Int)) {
+        let (x, z) = axial
         let y = -(x + z)
         self.init(x: x, y: y, z: z)
+    }
+
+    public func toAxial() -> (Int, Int) {
+        return (x, z)
     }
 }
 
 extension Hexacube : Hashable {
     public var hashValue: Int {
-        return x << HEXA_HASH_X_SHIFT + y << HEXA_HASH_Y_SHIFT + z
+        return x << HEXA_HASH_X_SHIFT + z
     }
 }
 

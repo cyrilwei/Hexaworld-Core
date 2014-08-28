@@ -35,7 +35,7 @@ public class Hexaworld <T> {
                 return nil
             }
             
-            return cells[Hexacube(v: (column, row))]
+            return cells[Hexacube(axial: (column, row))]
         }
         set {
             let index = layout.cellIndex(column, row: row)
@@ -43,35 +43,14 @@ public class Hexaworld <T> {
                 return
             }
             
-            cells[Hexacube(v: (column, row))] = newValue
+            cells[Hexacube(axial: (column, row))] = newValue
         }
     }
     
-//    subscript(cell: HexaCell, direction: HexaworldDirection) -> HexaCell? {
-//        let (columnOffset, rowOffset) = layout.offsetForDirection(direction)
-//        
-//        return self[cell.column + columnOffset, cell.row + rowOffset]
-//    }
-
     public init(layout: HexaLayout) {
         self.layout = layout
         
         columns = layout.columns;
         rows = layout.rows;
     }
-    
-//    public func fillCells() {
-//        for col in 0..<columns {
-//            for row in 0...rows {
-//                let index = layout.cellIndex(col, row: row)
-//                
-//                if index == HEXA_NOT_FOUND {
-//                    continue
-//                }
-//                
-//                let cell = T()
-//                cells[Hexacube(v: (col, row))] = cell
-//            }
-//        }
-//    }
 }
