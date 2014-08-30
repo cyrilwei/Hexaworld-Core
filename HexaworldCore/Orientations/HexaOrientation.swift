@@ -11,7 +11,7 @@ import CoreGraphics
 
 let M_2_COS_PI_6 = CGFloat(2.0 * cos(M_PI / 6))
 
-class HexaOrientation {
+public class HexaOrientation {
     let xFactor: CGFloat
     let yFactor: CGFloat
     
@@ -20,11 +20,11 @@ class HexaOrientation {
         self.yFactor = yFactor
     }
     
-    func offsetForDirection(direction: HexaDirection) -> (Int, Int) {
+    public func offsetForDirection(direction: HexaDirection) -> (Int, Int) {
         return (Int.max, Int.max)
     }
     
-    func directionFromOffset(columnOffset: Int, rowOffset: Int) -> HexaDirection {
+    public func directionFromOffset(qOffset: Int, rOffset: Int) -> HexaDirection {
         return .Unsupported
     }
 }

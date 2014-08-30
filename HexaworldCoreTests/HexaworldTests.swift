@@ -11,16 +11,19 @@ import XCTest
 import HexaworldCore
 
 class HexaworldTests: XCTestCase {
-    let expectedColumns = 5
-    let expectedRows = 3
+    let expectedRadius = 5
     
-    var world = Hexaworld<Int>(layout: HexaLayout.createRectHorizontalLayout(0, rows: 0))
+    var world = Hexaworld<Int>(orientation: HexaHorizontal(), radius: 0)
     
     override func setUp() {
         super.setUp()
 
-        world = Hexaworld<Int>(layout: HexaLayout.createRectHorizontalLayout(expectedColumns, rows: expectedRows))
-
+        createAndFillWorldWithRadius(expectedRadius)
+    }
+    
+    func createAndFillWorldWithRadius(radius: Int) {
+        world = Hexaworld<Int>(orientation: HexaHorizontal(), radius: radius)
+        
         world.fill { (x, y, z) -> Int in
             return x << 8 + z
         }
@@ -31,9 +34,11 @@ class HexaworldTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_should_return_correct_size() {
-        XCTAssertEqual(expectedColumns, world.columns)
-        XCTAssertEqual(expectedRows, world.rows)
+    func test_can_create_radius_0_world() {
+        createAndFillWorldWithRadius(0)
+        
+        XCTAssertEqual(0, world[0, 0]!)
+        XCTAssertNil(world[0, 1])
     }
     
     func test_should_return_correct_cell() {
@@ -43,8 +48,14 @@ class HexaworldTests: XCTestCase {
     }
     
     func test_should_return_nil_if_index_out_of_boundary() {
-        let cell = world[expectedColumns + 1, expectedRows]
+        let cell = world[expectedRadius + 1, expectedRadius]
         
         XCTAssertNil(cell)
+    }
+    
+    func test_should_return_correct_cell_for_neighbor_RIGHT() {
+        let neighborCell = world[0, 0, .Right]
+
+        XCTAssertEqual(1 << 8 + 0, neighborCell!)
     }
 }

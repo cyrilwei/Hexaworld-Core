@@ -10,46 +10,53 @@ import Foundation
 import CoreGraphics
 
 public class Hexaworld <T> {
-    public let columns: Int
-    public let rows: Int
+    var cells = [HexaPoint: T]()
     
-    public var cells = [Hexacube: T]()
+    let orientation: HexaOrientation
     
-    public let layout: HexaLayout
+    let radius: Int
     
     public var xFactor: CGFloat {
     get {
-        return layout.orientation.xFactor
+        return orientation.xFactor
     }
     }
 
     public var yFactor: CGFloat {
     get {
-        return layout.orientation.yFactor
+        return orientation.yFactor
     }
     }
 
     public subscript(column: Int, row: Int) -> T? {
         get {
-            return cells[Hexacube(axial: (column, row))]
+            return cells[HexaPoint(axial: (column, row))]
         }
         set {
-            cells[Hexacube(axial: (column, row))] = newValue
+            switch (column, row) {
+                case (-radius...radius, -radius...radius):
+                    cells[HexaPoint(axial: (column, row))] = newValue
+                default:
+                    return
+            }
         }
     }
     
-    public init(layout: HexaLayout) {
-        self.layout = layout
-        
-        columns = layout.columns;
-        rows = layout.rows;
+    public subscript(q: Int, r: Int, direction: HexaDirection) -> T? {
+        let (deltaQ, deltaR) = orientation.offsetForDirection(direction)
+        return self[q + deltaQ, r + deltaR]
+    }
+    
+    public init(orientation: HexaOrientation, radius: Int) {
+        self.orientation = orientation
+        self.radius = radius
     }
     
     public func fill(fillBlock: (x: Int, y: Int, z: Int) -> T) {
-        for x in 0..<columns {
-            for z in 0..<rows {
+        for x in -radius...radius {
+            for z in -radius...radius {
                 self[x, z] = fillBlock(x: x, y: -(x + z), z: z)
             }
         }
-    }    
+    }
 }

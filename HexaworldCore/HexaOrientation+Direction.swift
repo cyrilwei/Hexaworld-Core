@@ -1,5 +1,5 @@
 //
-//  Hexaworld+Direction.swift
+//  HexaOrientation+Direction.swift
 //  HexaworldCore
 //
 //  Created by Cyril Wei on 7/15/14.

@@ -8,59 +8,59 @@
 
 import Foundation
 
-class HexaVertical: HexaOrientation {
-    init() {
+public class HexaVertical: HexaOrientation {
+    public init() {
         super.init(xFactor: 1.5, yFactor: M_2_COS_PI_6)
     }
     
-    override func offsetForDirection(direction: HexaDirection) -> (Int, Int) {
-        var columnOffset: Int;
-        var rowOffset: Int;
+    override public func offsetForDirection(direction: HexaDirection) -> (Int, Int) {
+        var qOffset: Int;
+        var rOffset: Int;
         
         switch direction {
-        case .Up:
-            columnOffset = 0
-            rowOffset = -1
-        case .RightUp:
-            columnOffset = +1
-            rowOffset = -1
-        case .RightDown:
-            columnOffset = +1
-            rowOffset = 0
-        case .Down:
-            columnOffset = 0
-            rowOffset = +1
-        case .LeftDown:
-            columnOffset = -1
-            rowOffset = 0
-        case .LeftUp:
-            columnOffset = -1
-            rowOffset = -1
-        default:
-            (columnOffset, rowOffset) = super.offsetForDirection(direction)
+            case .Up:
+                qOffset = 0
+                rOffset = -1
+            case .RightUp:
+                qOffset = +1
+                rOffset = -1
+            case .RightDown:
+                qOffset = +1
+                rOffset = 0
+            case .Down:
+                qOffset = 0
+                rOffset = +1
+            case .LeftDown:
+                qOffset = -1
+                rOffset = +1
+            case .LeftUp:
+                qOffset = -1
+                rOffset = 0
+            default:
+                (qOffset, rOffset) = super.offsetForDirection(direction)
         }
         
-        return (columnOffset, rowOffset)
+        return (qOffset, rOffset)
     }
     
-    override func directionFromOffset(columnOffset: Int, rowOffset: Int) -> HexaDirection {
+    override public func directionFromOffset(qOffset: Int, rOffset: Int) -> HexaDirection {
         var direction: HexaDirection
         
-        switch (columnOffset, rowOffset) {
-        case (0, -1):
-            direction = .Up
-        case (+1, -1):
-            direction = .RightUp
-        case (+1, 0):
-            direction = .RightDown
-        case (0, +1):
-            direction = .Down
-        case (-1, 0):
-            direction = .LeftDown
-        case (-1, -1):
-            direction = .LeftUp
-        default:
-            direction = super.directionFromOffset(columnOffset, rowOffset: rowOffset)
+        switch (qOffset, rOffset) {
+            case (0, -1):
+                direction = .Up
+            case (+1, -1):
+                direction = .RightUp
+            case (+1, 0):
+                direction = .RightDown
+            case (0, +1):
+                direction = .Down
+            case (-1, +1):
+                direction = .LeftDown
+            case (-1, 0):
+                direction = .LeftUp
+            default:
+                direction = super.directionFromOffset(qOffset, rOffset: rOffset)
         }
         
         return direction

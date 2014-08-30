@@ -32,6 +32,6 @@ public class HexaLayout {
     }
     
     public func directionFromOffset(columnOffset: Int, rowOffset: Int) -> HexaDirection {
-        return orientation.directionFromOffset(columnOffset, rowOffset: rowOffset)
+        return orientation.directionFromOffset(columnOffset, rOffset: rowOffset)
     }
 }
