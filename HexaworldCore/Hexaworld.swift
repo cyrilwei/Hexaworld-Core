@@ -12,9 +12,9 @@ import CoreGraphics
 public class Hexaworld <T> {
     var cells = [HexaPoint: T]()
     
-    let orientation: HexaOrientation
+    public let orientation: HexaOrientation
     
-    let radius: Int
+    public let radius: Int
     
     public var xFactor: CGFloat {
     get {
@@ -53,10 +53,21 @@ public class Hexaworld <T> {
     }
     
     public func fill(fillBlock: (x: Int, y: Int, z: Int) -> T) {
+        cells.removeAll(keepCapacity: true)
+        
         for x in -radius...radius {
             for z in -radius...radius {
+                if abs(x + z) > radius {
+                    continue
+                }
                 self[x, z] = fillBlock(x: x, y: -(x + z), z: z)
             }
+        }
+    }
+    
+    public func enumerate(enumerateBlock: (x: Int, y: Int, z: Int, object: T) -> ()) {
+        for (point, object) in cells {
+            enumerateBlock(x: point.q, y: -point.q-point.r, z: point.r, object: object)
         }
     }
 }
