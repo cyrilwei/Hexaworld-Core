@@ -52,9 +52,11 @@ public class Hexaworld <T> {
         self.radius = radius
     }
     
-    public func fill(fillBlock: (x: Int, y: Int, z: Int) -> T) {
+    public func removeAll() {
         cells.removeAll(keepCapacity: true)
-        
+    }
+    
+    public func fill(fillBlock: (x: Int, y: Int, z: Int) -> T) {
         for x in -radius...radius {
             for z in -radius...radius {
                 if abs(x + z) > radius {
