@@ -35,7 +35,13 @@ public struct HexaPoint {
     }
 }
 
-extension HexaPoint : Hashable {
+extension HexaPoint: Printable {
+    public var description: String {
+        return "HexaPoint -> x:\(self.q), y:\(-self.q - self.r), z:\(self.r)"
+    }
+}
+
+extension HexaPoint: Hashable {
     public var hashValue: Int {
         return q << HEXA_HASH_Q_SHIFT + r
     }
