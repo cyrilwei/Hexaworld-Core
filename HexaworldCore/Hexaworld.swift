@@ -67,9 +67,9 @@ public class Hexaworld <T> {
         }
     }
     
-    public func enumerate(enumerateBlock: (x: Int, y: Int, z: Int, object: T) -> ()) {
+    public func enumerate(enumerateBlock: (point: HexaPoint, object: T) -> ()) {
         for (point, object) in cells {
-            enumerateBlock(x: point.q, y: -point.q-point.r, z: point.r, object: object)
+            enumerateBlock(point: point, object: object)
         }
     }
 }
