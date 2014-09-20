@@ -28,6 +28,20 @@ public class Hexaworld <T> {
     }
     }
 
+    public subscript(point: HexaPoint) -> T? {
+        get {
+            return cells[point]
+        }
+        set {
+            switch (point.q, point.r) {
+            case (-radius...radius, -radius...radius):
+                cells[point] = newValue
+            default:
+                return
+            }
+        }
+    }
+    
     public subscript(column: Int, row: Int) -> T? {
         get {
             return cells[HexaPoint(axial: (column, row))]
