@@ -28,6 +28,20 @@ public class Hexaworld <T> {
     }
     }
 
+    subscript(column: Int, row: Int) -> T? {
+        get {
+            return cells[HexaPoint(axial: (column, row))]
+        }
+        set {
+            switch (column, row) {
+                case (-radius...radius, -radius...radius):
+                    cells[HexaPoint(axial: (column, row))] = newValue
+                default:
+                    return
+            }
+        }
+    }
+
     public subscript(point: HexaPoint) -> T? {
         get {
             return cells[point]
@@ -41,24 +55,10 @@ public class Hexaworld <T> {
             }
         }
     }
-    
-    public subscript(column: Int, row: Int) -> T? {
-        get {
-            return cells[HexaPoint(axial: (column, row))]
-        }
-        set {
-            switch (column, row) {
-                case (-radius...radius, -radius...radius):
-                    cells[HexaPoint(axial: (column, row))] = newValue
-                default:
-                    return
-            }
-        }
-    }
-    
-    public subscript(q: Int, r: Int, direction: HexaDirection) -> T? {
+
+    public subscript(point: HexaPoint, direction: HexaDirection) -> T? {
         let (deltaQ, deltaR) = orientation.offsetForDirection(direction)
-        return self[q + deltaQ, r + deltaR]
+        return self[point.q + deltaQ, point.r + deltaR]
     }
     
     public init(orientation: HexaOrientation, radius: Int) {
@@ -70,13 +70,14 @@ public class Hexaworld <T> {
         cells.removeAll(keepCapacity: true)
     }
     
-    public func fill(fillBlock: (x: Int, y: Int, z: Int) -> T) {
+    public func fill(fillBlock: (point: HexaPoint) -> T) {
         for x in -radius...radius {
             for z in -radius...radius {
                 if abs(x + z) > radius {
                     continue
                 }
-                self[x, z] = fillBlock(x: x, y: -(x + z), z: z)
+                let point = HexaPoint(axial: (x, z))
+                self[point] = fillBlock(point: point)
             }
         }
     }

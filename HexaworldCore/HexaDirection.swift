@@ -1,5 +1,5 @@
 //
-//  HexaOrientation+Direction.swift
+//  HexaDirection.swift
 //  HexaworldCore
 //
 //  Created by Cyril Wei on 7/15/14.
@@ -9,6 +9,7 @@
 import Foundation
 
 public enum HexaDirection {
+    case Unsupported
     case Up
     case RightUp
     case Right
@@ -17,5 +18,4 @@ public enum HexaDirection {
     case LeftDown
     case Left
     case LeftUp
-    case Unsupported
 }

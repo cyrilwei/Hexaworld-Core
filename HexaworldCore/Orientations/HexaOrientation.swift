@@ -27,4 +27,12 @@ public class HexaOrientation {
     public func directionFromOffset(qOffset: Int, rOffset: Int) -> HexaDirection {
         return .Unsupported
     }
+    
+    public func directionFromDegree(degree: Int) -> HexaDirection {
+        return .Unsupported
+    }
+    
+    public func pointFromPoint(point: HexaPoint?, direction: HexaDirection) -> HexaPoint? {
+        return nil
+    }
 }

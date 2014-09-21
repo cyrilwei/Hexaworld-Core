@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F10234F8197573ED00692FA4 /* HexaOrientation+Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10234F7197573ED00692FA4 /* HexaOrientation+Direction.swift */; };
+		F10234F8197573ED00692FA4 /* HexaDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10234F7197573ED00692FA4 /* HexaDirection.swift */; };
 		F1445D8319ACB687002BC1EF /* HexaPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1445D8219ACB687002BC1EF /* HexaPoint.swift */; };
 		F1445DBA19AF6744002BC1EF /* HexaworldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1445DB919AF6744002BC1EF /* HexaworldTests.swift */; };
 		F1A0FB1B197FEC1800A2A5CF /* HexaOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A0FB1A197FEC1800A2A5CF /* HexaOrientation.swift */; };
@@ -29,7 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F10234F7197573ED00692FA4 /* HexaOrientation+Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "HexaOrientation+Direction.swift"; path = "../HexaOrientation+Direction.swift"; sourceTree = "<group>"; };
+		F10234F7197573ED00692FA4 /* HexaDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HexaDirection.swift; path = ../HexaDirection.swift; sourceTree = "<group>"; };
 		F1445D8219ACB687002BC1EF /* HexaPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaPoint.swift; sourceTree = "<group>"; };
 		F1445DB919AF6744002BC1EF /* HexaworldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaworldTests.swift; sourceTree = "<group>"; };
 		F1A0FB1A197FEC1800A2A5CF /* HexaOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexaOrientation.swift; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 				F1A0FB1A197FEC1800A2A5CF /* HexaOrientation.swift */,
 				F1A0FB1C197FEC4000A2A5CF /* HexaVertical.swift */,
 				F1A0FB1E197FEC9900A2A5CF /* HexaHorizontal.swift */,
-				F10234F7197573ED00692FA4 /* HexaOrientation+Direction.swift */,
+				F10234F7197573ED00692FA4 /* HexaDirection.swift */,
 			);
 			path = Orientations;
 			sourceTree = "<group>";
@@ -241,7 +241,7 @@
 				F1445D8319ACB687002BC1EF /* HexaPoint.swift in Sources */,
 				F1A0FB1F197FEC9900A2A5CF /* HexaHorizontal.swift in Sources */,
 				F1B3C3E21969587300366758 /* Hexaworld.swift in Sources */,
-				F10234F8197573ED00692FA4 /* HexaOrientation+Direction.swift in Sources */,
+				F10234F8197573ED00692FA4 /* HexaDirection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

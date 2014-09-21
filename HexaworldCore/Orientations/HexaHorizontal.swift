@@ -65,4 +65,40 @@ public class HexaHorizontal: HexaOrientation {
         
         return direction
     }
+    
+    override public func directionFromDegree(degree: Int) -> HexaDirection {
+        var direction: HexaDirection = .Unsupported
+        switch degree {
+        case 0..<60:
+            direction = .RightDown
+        case 60..<120:
+            direction = .Right
+        case 120..<180:
+            direction = .RightUp
+        case 180..<240:
+            direction = .LeftUp
+        case 240..<300:
+            direction = .Left
+        case 300..<360:
+            direction = .LeftDown
+        default:
+            direction = .Unsupported
+        }
+
+        return direction
+    }
+    
+    override public func pointFromPoint(point: HexaPoint?, direction: HexaDirection) -> HexaPoint? {
+        if point == nil {
+            return nil
+        }
+        
+        let (qOffset, rOffset) = offsetForDirection(direction)
+        
+        if qOffset != Int.max && rOffset != Int.max {
+            return HexaPoint(axial: (point!.q + qOffset, point!.r + rOffset))
+        }
+        
+        return super.pointFromPoint(point, direction: direction)
+    }
 }
