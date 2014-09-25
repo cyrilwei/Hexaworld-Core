@@ -8,8 +8,8 @@
 
 import Foundation
 
-public enum HexaDirection {
-    case Unsupported
+public enum HexaDirection: Int {
+    case Unsupported = 0
     case Up
     case RightUp
     case Right
@@ -18,4 +18,20 @@ public enum HexaDirection {
     case LeftDown
     case Left
     case LeftUp
+    
+    public var name: String {
+        let directionNames = [
+            "Unsupported",
+            "Up",
+            "RightUp",
+            "Right",
+            "RightDown",
+            "Down",
+            "LeftDown",
+            "Left",
+            "LeftUp"]
+            
+        return directionNames[toRaw()]
+    }
+    
 }
