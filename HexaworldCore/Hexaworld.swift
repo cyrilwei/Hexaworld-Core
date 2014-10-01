@@ -71,8 +71,8 @@ public class Hexaworld <T> {
     }
     
     public func fill(fillBlock: (point: HexaPoint) -> T) {
-        for x in -radius...radius {
-            for z in -radius...radius {
+        for z in -radius...radius {
+            for x in -radius...radius {
                 if abs(x + z) > radius {
                     continue
                 }
@@ -82,9 +82,15 @@ public class Hexaworld <T> {
         }
     }
     
-    public func enumerate(enumerateBlock: (point: HexaPoint, object: T) -> ()) {
-        for (point, object) in cells {
-            enumerateBlock(point: point, object: object)
+    public func enumerate(enumerateBlock: (point: HexaPoint, object: T?) -> ()) {
+        for z in -radius...radius {
+            for x in -radius...radius {
+                if abs(x + z) > radius {
+                    continue
+                }
+                let point = HexaPoint(axial: (x, z))
+                enumerateBlock(point: point, object: self[point])
+            }
         }
     }
 }
