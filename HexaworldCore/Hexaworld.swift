@@ -42,16 +42,22 @@ public class Hexaworld <T> {
         }
     }
 
-    public subscript(point: HexaPoint) -> T? {
+    public subscript(point: HexaPoint?) -> T? {
         get {
-            return cells[point]
+            if let realPoint = point {
+                return cells[realPoint]
+            } else {
+                return nil
+            }
         }
         set {
-            switch (point.q, point.r) {
-            case (-radius...radius, -radius...radius):
-                cells[point] = newValue
-            default:
-                return
+            if let realPoint = point {
+                switch (realPoint.q, realPoint.r) {
+                case (-radius...radius, -radius...radius):
+                    cells[realPoint] = newValue
+                default:
+                    return
+                }
             }
         }
     }
