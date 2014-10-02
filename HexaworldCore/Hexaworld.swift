@@ -10,7 +10,7 @@ import Foundation
 import CoreGraphics
 
 public class Hexaworld <T> {
-    var cells = [HexaPoint: T]()
+    var cells: [HexaPoint: T]
     
     public let orientation: HexaOrientation
     
@@ -70,6 +70,8 @@ public class Hexaworld <T> {
     public init(orientation: HexaOrientation, radius: Int) {
         self.orientation = orientation
         self.radius = radius
+        
+        self.cells = Dictionary<HexaPoint, T>(minimumCapacity: radius * radius)
     }
     
     public func removeAll() {
