@@ -12,8 +12,20 @@ let HEXA_HASH_Q_SHIFT = 16
 let HEXA_MAX_MAP_SIZE = 1 << HEXA_HASH_Q_SHIFT - 1
 
 public struct HexaPoint {
-    var q = 0
-    var r = 0
+    var q: Int = 0
+    var r: Int = 0
+    
+    public var x: Int {
+        return q
+    }
+    
+    public var z: Int {
+        return r
+    }
+    
+    public var y: Int {
+        return 0 - q - r
+    }
 
     public init (q: Int, r: Int) {
         self.q = q

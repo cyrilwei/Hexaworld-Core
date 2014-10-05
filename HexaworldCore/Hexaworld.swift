@@ -30,34 +30,30 @@ public class Hexaworld <T> {
 
     subscript(column: Int, row: Int) -> T? {
         get {
-            return cells[HexaPoint(axial: (column, row))]
+            if isPointValid(column, z: row) {
+                return cells[HexaPoint(axial: (column, row))]
+            } else {
+                return nil
+            }
         }
         set {
-            switch (column, row) {
-                case (-radius...radius, -radius...radius):
-                    cells[HexaPoint(axial: (column, row))] = newValue
-                default:
-                    return
+            if isPointValid(column, z: row) {
+                cells[HexaPoint(axial: (column, row))] = newValue
             }
         }
     }
 
     public subscript(point: HexaPoint?) -> T? {
         get {
-            if let realPoint = point {
-                return cells[realPoint]
+            if isPointValid(point) {
+                return cells[point!]
             } else {
                 return nil
             }
         }
         set {
-            if let realPoint = point {
-                switch (realPoint.q, realPoint.r) {
-                case (-radius...radius, -radius...radius):
-                    cells[realPoint] = newValue
-                default:
-                    return
-                }
+            if isPointValid(point) {
+                cells[point!] = newValue
             }
         }
     }
@@ -71,7 +67,20 @@ public class Hexaworld <T> {
         self.orientation = orientation
         self.radius = radius
         
-        self.cells = Dictionary<HexaPoint, T>(minimumCapacity: radius * radius)
+        let mapSize = radius * 2 + 1
+        self.cells = Dictionary<HexaPoint, T>(minimumCapacity: mapSize * mapSize)
+    }
+    
+    public func isPointValid(point: HexaPoint?) -> Bool {
+        if let realPoint = point {
+            return isPointValid(realPoint.q, z: realPoint.r)
+        }
+        
+        return false
+    }
+    
+    public func isPointValid(x: Int, z: Int) -> Bool {
+        return ((abs(x) + abs(z) + abs(-x - z)) >> 1) <= radius
     }
     
     public func removeAll() {
@@ -79,26 +88,40 @@ public class Hexaworld <T> {
     }
     
     public func fill(fillBlock: (point: HexaPoint) -> T) {
-        for z in -radius...radius {
-            for x in -radius...radius {
-                if abs(x + z) > radius {
-                    continue
-                }
-                let point = HexaPoint(axial: (x, z))
-                self[point] = fillBlock(point: point)
-            }
+        enumerateOrdered { (point) -> () in
+            self[point] = fillBlock(point: point)
         }
     }
     
-    public func enumerate(enumerateBlock: (point: HexaPoint, object: T?) -> ()) {
+    public func enumerateCells(enumerateBlock: (point: HexaPoint, cell: T?) -> ()) {
+        enumerateOrdered { (point) -> () in
+            enumerateBlock(point: point, cell: self[point])
+        }
+    }
+    
+    func enumerateOrdered(enumerateBlock: (point: HexaPoint) -> ()) {
         for z in -radius...radius {
             for x in -radius...radius {
-                if abs(x + z) > radius {
-                    continue
+                if isPointValid(x, z: z) {
+                    enumerateBlock(point: HexaPoint(axial: (x, z)))
                 }
-                let point = HexaPoint(axial: (x, z))
-                enumerateBlock(point: point, object: self[point])
             }
         }
+    }
+}
+
+extension Hexaworld: Printable {
+    public var description: String {
+        var str = ""
+
+        enumerateOrdered { (point) -> () in
+            if let cell = self[point] {
+                str += "point: \(point), \(cell) "
+            } else {
+                str += "point: \(point), nil "
+            }
+        }
+ 
+        return str
     }
 }
