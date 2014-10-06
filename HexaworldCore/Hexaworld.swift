@@ -87,7 +87,7 @@ public class Hexaworld <T> {
         cells.removeAll(keepCapacity: true)
     }
     
-    public func fill(fillBlock: (point: HexaPoint) -> T) {
+    public func fill(fillBlock: (point: HexaPoint) -> T?) {
         enumerateOrdered { (point) -> () in
             self[point] = fillBlock(point: point)
         }
