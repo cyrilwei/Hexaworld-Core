@@ -8,10 +8,27 @@
 
 import Foundation
 
-public class HexaCell {
+public class HexaCell: Printable {
     public var point: HexaPoint!
     
     public init() {
-        
     }
+
+    public var description: String {
+        return "HexaCell @ point -> x:\(self.point.q), y:\(-self.point.q - self.point.r), z:\(self.point.r)"
+    }
+}
+
+extension HexaCell: Hashable {
+    public var hashValue: Int {
+        if let realPoint = point {
+            return self.point.hashValue
+        }
+            
+        return Int.max
+    }
+}
+
+public func ==(lhs: HexaCell, rhs: HexaCell) -> Bool {
+    return lhs.hashValue == rhs.hashValue
 }

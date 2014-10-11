@@ -38,7 +38,9 @@ public class Hexaworld <T: HexaCell> {
         }
         set {
             if isPointValid(column, z: row) {
-                cells[HexaPoint(axial: (column, row))] = newValue
+                let point = HexaPoint(axial: (column, row))
+                newValue?.point = point
+                cells[point] = newValue
             }
         }
     }
@@ -53,6 +55,7 @@ public class Hexaworld <T: HexaCell> {
         }
         set {
             if isPointValid(point) {
+                newValue?.point = point!
                 cells[point!] = newValue
             }
         }
