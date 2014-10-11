@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-public class Hexaworld <T> {
+public class Hexaworld <T: HexaCell> {
     var cells: [HexaPoint: T]
     
     public let orientation: HexaOrientation
