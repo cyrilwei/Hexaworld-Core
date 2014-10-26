@@ -31,7 +31,6 @@ public enum HexaDirection: Int {
             "Left",
             "LeftUp"]
             
-        return directionNames[toRaw()]
+        return directionNames[self.rawValue]
     }
-    
 }
