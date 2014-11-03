@@ -101,4 +101,16 @@ public class HexaHorizontal: HexaOrientation {
         
         return super.pointFromPoint(point, direction: direction)
     }
+
+    public override func enumerateSupported(enumerateBlock: (direction: HexaDirection) -> ()) {
+        for dir in 1...8 {
+            if let direction = HexaDirection(rawValue: dir) {
+                if direction == .Up || direction == .Down {
+                    continue
+                }
+
+                enumerateBlock(direction: direction)
+            }
+        }
+    }
 }

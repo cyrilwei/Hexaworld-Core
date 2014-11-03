@@ -35,4 +35,12 @@ public class HexaOrientation {
     public func pointFromPoint(point: HexaPoint?, direction: HexaDirection) -> HexaPoint? {
         return nil
     }
+
+    public func enumerateSupported(enumerateBlock: (direction: HexaDirection) -> () ) {
+        for dir in 1...8 {
+            if let direction = HexaDirection(rawValue: dir) {
+                enumerateBlock(direction: direction)
+            }
+        }
+    }
 }

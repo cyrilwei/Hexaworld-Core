@@ -111,6 +111,18 @@ public class Hexaworld <T: HexaCell> {
             }
         }
     }
+
+    func nearByPointsForPoint(point: HexaPoint) -> [HexaPoint] {
+        var nearPoints = [HexaPoint]()
+
+        self.orientation.enumerateSupported { (direction) -> () in
+            if let nearPoint = self.orientation.pointFromPoint(point, direction: direction) {
+                nearPoints.append(nearPoint)
+            }
+        }
+
+        return nearPoints
+    }
 }
 
 extension Hexaworld: Printable {
