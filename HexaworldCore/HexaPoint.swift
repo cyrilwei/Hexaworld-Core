@@ -33,7 +33,7 @@ public struct HexaPoint {
     }
 
     public init (cube: (Int, Int, Int)) {
-        let (x, y, z) = cube
+        let (x, _, z) = cube
         self.init(q: x, r: z)
     }
 
@@ -47,7 +47,7 @@ public struct HexaPoint {
     }
 }
 
-extension HexaPoint: Printable {
+extension HexaPoint: CustomStringConvertible {
     public var description: String {
         return "HexaPoint -> x:\(self.q), y:\(-self.q - self.r), z:\(self.r)"
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class HexaCell: Printable {
+public class HexaCell: CustomStringConvertible {
     public var point: HexaPoint!
     
     public init() {
@@ -22,7 +22,7 @@ public class HexaCell: Printable {
 extension HexaCell: Hashable {
     public var hashValue: Int {
         if let realPoint = point {
-            return self.point.hashValue
+            return realPoint.hashValue
         }
             
         return Int.max

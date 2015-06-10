@@ -125,7 +125,7 @@ public class Hexaworld <T: HexaCell> {
     }
 }
 
-extension Hexaworld: Printable {
+extension Hexaworld: CustomStringConvertible {
     public var description: String {
         var str = ""
 
