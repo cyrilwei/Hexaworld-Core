@@ -30,14 +30,14 @@ public class Hexaworld <T: HexaCell> {
 
     subscript(column: Int, row: Int) -> T? {
         get {
-            if isPointValid(column, z: row) {
+            if isPointValid(x: column, z: row) {
                 return cells[HexaPoint(axial: (column, row))]
             } else {
                 return nil
             }
         }
         set {
-            if isPointValid(column, z: row) {
+            if isPointValid(x: column, z: row) {
                 let point = HexaPoint(axial: (column, row))
                 newValue?.point = point
                 cells[point] = newValue
@@ -74,45 +74,46 @@ public class Hexaworld <T: HexaCell> {
         self.cells = Dictionary<HexaPoint, T>(minimumCapacity: mapSize * mapSize)
     }
     
-    public func isPointValid(point: HexaPoint?) -> Bool {
+    public func isPointValid(_ point: HexaPoint?) -> Bool {
         if let realPoint = point {
-            return isPointValid(realPoint.q, z: realPoint.r)
+            return isPointValid(x: realPoint.q, z: realPoint.r)
         }
         
         return false
     }
     
     public func isPointValid(x: Int, z: Int) -> Bool {
-        return ((abs(x) + abs(z) + abs(-x - z)) >> 1) <= radius
+        let distance: Int = (Int(abs(x)) + Int(abs(z)) + Int(abs(-x - z))) >> 1
+        return distance <= radius
     }
     
     public func removeAll() {
-        cells.removeAll(keepCapacity: true)
+        cells.removeAll(keepingCapacity: true)
     }
     
-    public func fill(fillBlock: (point: HexaPoint) -> T?) {
+    public func fill(fillBlock: (HexaPoint) -> T?) {
         enumerateOrdered { (point) -> () in
-            self[point] = fillBlock(point: point)
+            self[point] = fillBlock(point)
         }
     }
     
-    public func enumerateCells(enumerateBlock: (point: HexaPoint, cell: T?) -> ()) {
+    public func enumerateCells(enumerateBlock: (HexaPoint, _ cell: T?) -> ()) {
         enumerateOrdered { (point) -> () in
-            enumerateBlock(point: point, cell: self[point])
+            enumerateBlock(point, self[point])
         }
     }
     
-    func enumerateOrdered(enumerateBlock: (point: HexaPoint) -> ()) {
+    func enumerateOrdered(enumerateBlock: (HexaPoint) -> ()) {
         for z in -radius...radius {
             for x in -radius...radius {
-                if isPointValid(x, z: z) {
-                    enumerateBlock(point: HexaPoint(axial: (x, z)))
+                if isPointValid(x: x, z: z) {
+                    enumerateBlock(HexaPoint(axial: (x, z)))
                 }
             }
         }
     }
 
-    func nearByPointsForPoint(point: HexaPoint) -> [HexaPoint] {
+    func nearByPointsForPoint(_ point: HexaPoint) -> [HexaPoint] {
         var nearPoints = [HexaPoint]()
 
         self.orientation.enumerateSupported { (direction) -> () in

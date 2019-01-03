@@ -9,7 +9,7 @@
 import Foundation
 import CoreGraphics
 
-let M_2_COS_PI_6 = CGFloat(2.0 * cos(M_PI / 6))
+let M_2_COS_PI_6 = CGFloat(2.0 * cos(.pi / 6))
 
 public class HexaOrientation {
     let xFactor: CGFloat
@@ -20,26 +20,26 @@ public class HexaOrientation {
         self.yFactor = yFactor
     }
     
-    public func offsetForDirection(direction: HexaDirection) -> (Int, Int) {
+    public func offsetForDirection(_ direction: HexaDirection) -> (Int, Int) {
         return (Int.max, Int.max)
     }
     
-    public func directionFromOffset(qOffset: Int, rOffset: Int) -> HexaDirection {
+    public func directionFromOffset(_ qOffset: Int, rOffset: Int) -> HexaDirection {
         return .Unsupported
     }
     
-    public func directionFromDegree(degree: Int) -> HexaDirection {
+    public func directionFromDegree(_ degree: Int) -> HexaDirection {
         return .Unsupported
     }
     
-    public func pointFromPoint(point: HexaPoint?, direction: HexaDirection) -> HexaPoint? {
+    public func pointFromPoint(_ point: HexaPoint?, direction: HexaDirection) -> HexaPoint? {
         return nil
     }
 
-    public func enumerateSupported(enumerateBlock: (direction: HexaDirection) -> () ) {
+    public func enumerateSupported(_ enumerateBlock: (HexaDirection) -> () ) {
         for dir in 1...8 {
             if let direction = HexaDirection(rawValue: dir) {
-                enumerateBlock(direction: direction)
+                enumerateBlock(direction)
             }
         }
     }

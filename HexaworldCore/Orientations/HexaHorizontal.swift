@@ -13,7 +13,7 @@ public class HexaHorizontal: HexaOrientation {
         super.init(xFactor: M_2_COS_PI_6, yFactor: 1.5)
     }
     
-    override public func offsetForDirection(direction: HexaDirection) -> (Int, Int) {
+    override public func offsetForDirection(_ direction: HexaDirection) -> (Int, Int) {
         var qOffset: Int;
         var rOffset: Int;
         
@@ -43,7 +43,7 @@ public class HexaHorizontal: HexaOrientation {
         return (qOffset, rOffset)
     }
     
-    override public func directionFromOffset(qOffset: Int, rOffset: Int) -> HexaDirection {
+    override public func directionFromOffset(_ qOffset: Int, rOffset: Int) -> HexaDirection {
         var direction: HexaDirection
         
         switch (qOffset, rOffset) {
@@ -66,7 +66,7 @@ public class HexaHorizontal: HexaOrientation {
         return direction
     }
     
-    override public func directionFromDegree(degree: Int) -> HexaDirection {
+    override public func directionFromDegree(_ degree: Int) -> HexaDirection {
         var direction: HexaDirection = .Unsupported
         switch degree {
         case 0..<60:
@@ -88,7 +88,7 @@ public class HexaHorizontal: HexaOrientation {
         return direction
     }
     
-    override public func pointFromPoint(point: HexaPoint?, direction: HexaDirection) -> HexaPoint? {
+    override public func pointFromPoint(_ point: HexaPoint?, direction: HexaDirection) -> HexaPoint? {
         if point == nil {
             return nil
         }
@@ -102,14 +102,14 @@ public class HexaHorizontal: HexaOrientation {
         return super.pointFromPoint(point, direction: direction)
     }
 
-    public override func enumerateSupported(enumerateBlock: (direction: HexaDirection) -> ()) {
+    public override func enumerateSupported(_ enumerateBlock: (HexaDirection) -> ()) {
         for dir in 1...8 {
             if let direction = HexaDirection(rawValue: dir) {
                 if direction == .Up || direction == .Down {
                     continue
                 }
 
-                enumerateBlock(direction: direction)
+                enumerateBlock(direction)
             }
         }
     }
